@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ButtonIcon from './components/ButtonIcon';
+import ButtonDiv from './components/ButtonDiv';
+import FaIcons from './components/FaIcons';
 
 class App extends Component {
+  state = {
+    iconsList: FaIcons
+  }
   render() {
     return (
       <div className="container">
         <div className="columns is-mobile">
           <div className="column is-2 is-offset-1">
-            <button className="button is-large is-success is-size-3-tablet is-size-2-desktop"><i className="fas fa-pepper-hot"></i></button>
+            <ButtonIcon />
           </div>
-          <div className="column is-2">
-            <button className="button is-large is-success is-size-3-tablet is-size-2-desktop"><i className="fas fa-pepper-hot"></i></button>
-          </div>
-          <div className="column is-2">
-            <button className="button is-large is-success is-size-3-tablet is-size-2-desktop"><i className="fas fa-pepper-hot"></i></button>
-          </div>
-          <div className="column is-2">
-            <button className="button is-large is-success is-size-3-tablet is-size-2-desktop"><i className="fas fa-pepper-hot"></i></button>
-          </div>
-          <div className="column is-2">
-            <button className="button is-large is-success is-size-3-tablet is-size-2-desktop"><i className="fas fa-pepper-hot"></i></button>
-          </div>
+          <ButtonDiv />
+          <ButtonDiv />
+          <ButtonDiv />
+          <ButtonDiv />
         </div>
 
         <div className="columns is-mobile">
