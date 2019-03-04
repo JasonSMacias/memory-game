@@ -7,7 +7,6 @@ class App extends Component {
   state = {
     iconsList: FaIcons,
     chosen: [],
-    shouldShuffle: false,
     score: 0,
     highScore: 0
   }
@@ -16,8 +15,15 @@ class App extends Component {
     
     let chosenList = this.state.chosen;
     if (chosenList.includes(iconName)) {
-      console.log("bad guess");
-      // reset score, record high score if appropriate, re-populate icons
+      alert("bad guess, game over.  Try again.");
+      // reset score, re-populate icons
+      const updatedIconsList = this.state.iconsList
+      .sort(() => 0.5 - Math.random());
+      this.setState({
+        iconsList: updatedIconsList,
+        score: 0,
+        chosen: []
+      });
     }
     else{
       
@@ -28,9 +34,11 @@ class App extends Component {
       if (currentScore > currentHigh) {
         currentHigh = currentScore;
       };
+      const updatedIconsList = this.state.iconsList
+      .sort(() => 0.5 - Math.random());
       this.setState({
+        iconsList: updatedIconsList,
         chosen: chosenList,
-        shouldShuffle: true,
         score: currentScore,
         highScore: currentHigh
       });
@@ -119,8 +127,8 @@ class App extends Component {
           </div>
           <div className="column is-6">
             <div className="columns is-mobile">
-              <div className="column is-size-5-mobile is-size-3-tablet is-size-1-desktop has-text-right">Score: <span className="has-text-danger">0</span></div>
-              <div className="column is-size-5-mobile is-size-3-tablet is-size-1-desktop has-text-success">Best: <span className="has-text-danger">0</span></div>
+              <div className="column is-size-5-mobile is-size-3-tablet is-size-1-desktop has-text-right">Score: <span className="has-text-danger">{this.state.score}</span></div>
+              <div className="column is-size-5-mobile is-size-3-tablet is-size-1-desktop has-text-success">Best: <span className="has-text-danger">{this.state.highScore}</span></div>
             </div>
           </div>
           <ButtonDiv 
