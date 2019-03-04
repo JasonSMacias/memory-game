@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/JasonSMacias/memory-game/precache-manifest.67c077e3cc57113c77e20955897300e6.js"
+  "/memory-game/precache-manifest.c4b685eadb09f40d955cd8752f87245d.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/JasonSMacias/memory-game/index.html", {
+workbox.routing.registerNavigationRoute("/memory-game/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
