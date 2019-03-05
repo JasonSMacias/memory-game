@@ -6,6 +6,7 @@ function ButtonDiv(props) {
     <div className="column is-2">
       <ButtonIcon 
       icon={props.icon}
+      color={props.color}
       clickCheck={props.clickCheck} />
     </div>
   );
