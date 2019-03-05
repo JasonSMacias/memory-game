@@ -2,27 +2,34 @@ import React, { Component } from 'react';
 import ButtonIcon from './components/ButtonIcon';
 import ButtonDiv from './components/ButtonDiv';
 import FaIcons from './components/FaIcons';
+import Modal from './components/Modal';
 
 class App extends Component {
   state = {
     iconsList: FaIcons,
     chosen: [],
     score: 0,
-    highScore: 0
+    highScore: 0,
+    active: "modal",
+    modalContent: ""
   }
+
+  close = () => {
+    this.setState({active: "modal"});
+  };
 
   clickCheck = iconName => {
     
     let chosenList = this.state.chosen;
     if (chosenList.includes(iconName)) {
-      alert("bad guess, game over.  Try again.");
       // reset score, re-populate icons
       const updatedIconsList = this.state.iconsList
       .sort(() => 0.5 - Math.random());
       this.setState({
         iconsList: updatedIconsList,
         score: 0,
-        chosen: []
+        chosen: [],
+        active: "modal is-active",
       });
     }
     else{
@@ -186,7 +193,10 @@ class App extends Component {
             clickCheck={this.clickCheck}
           />
         </div>
-
+        <Modal
+          active={this.state.active}
+          close={this.close}
+        />
       </div>
     );
   }
