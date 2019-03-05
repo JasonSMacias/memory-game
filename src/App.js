@@ -3,10 +3,14 @@ import ButtonIcon from './components/ButtonIcon';
 import ButtonDiv from './components/ButtonDiv';
 import FaIcons from './components/FaIcons';
 import Modal from './components/Modal';
+import Colors from './components/Colors';
 
 class App extends Component {
+  
+
   state = {
     iconsList: FaIcons,
+    iconColors: Colors,
     chosen: [],
     score: 0,
     highScore: 0,
